@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
 
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
+I have always been impressed by the natural growing trend of sharing positive ideas; that is why I never get tired of promoting opensource and open access. I strongly believe that open access applied to a new way of research and scientic publication could be a pivot point for mankind.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[andrea.rigoni@igi.cnr.it](mailto:andrea.rigoni@igi.cnr.it)
+Consorzio RFX
+Corso Stati Uniti, 4 – 35127 Padova (Italy) 
+Tel: +39 049 8595039
