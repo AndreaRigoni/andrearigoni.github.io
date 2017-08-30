@@ -1,0 +1,221 @@
+# ANACLETO - VIVADO IP PROJECT
+
+In Vivado there are no apparent difference between a standard RTL project and an IP packaging software. 
+
+The former created using:
+create_project -in_memory -part $v::pe(VIVADO_SOC_PART) -force $project_name
+
+And the latter created using:
+create_project -in_memory -part $v::pe(VIVADO_SOC_PART) -force dummy
+
+  ipx::package_project -import_files -root_dir $ipdir
+
+  set core [ipx::current_core]
+
+  set_property VERSION      $v::ce(VERSION) $core
+
+  set_property NAME         $v::ce(core_name) $core
+
+  set_property VENDOR       $v::ce(VENDOR) $core
+
+  ipx::create_xgui_files $core
+
+  ipx::update_checksums $core
+
+  ipx::save_core $core
+
+ ipx::edit_ip_in_project -force true -upgrade true -name ${project_name}_ip \
+
+	-directory $dir_prj $ipdir/component.xml
+
+In this case two projects has been instanced and from a direct comparison between project properties there seems to be almost no differences except for the component.xml file added to sources_1
+
+**IP PROJECT**
+
+* * *
+
+
+... BOARD_CONNECTIONS = 
+
+ ... BOARD_PART = 
+
+ ... CLASS = project
+
+ ... COMPXLIB.ACTIVEHDL_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0_ip.cache/compile_simlib/activehdl
+
+ ... COMPXLIB.FUNCSIM = 1
+
+ ... COMPXLIB.IES_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0_ip.cache/compile_simlib/ies
+
+ ... COMPXLIB.MODELSIM_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0_ip.cache/compile_simlib/modelsim
+
+ ... COMPXLIB.OVERWRITE_LIBS = 0
+
+ ... COMPXLIB.QUESTA_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0_ip.cache/compile_simlib/questa
+
+ ... COMPXLIB.RIVIERA_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0_ip.cache/compile_simlib/riviera
+
+ ... COMPXLIB.TIMESIM = 1
+
+ ... COMPXLIB.VCS_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0_ip.cache/compile_simlib/vcs
+
+ ... COMPXLIB.XSIM_COMPILED_LIBRARY_DIR = 
+
+ ... CORECONTAINER.ENABLE = 0
+
+ ... DEFAULT_LIB = xil_defaultlib
+
+ ... DIRECTORY = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya
+
+ ... DSA.NUM_COMPUTE_UNITS = 16
+
+ ... ENABLE_OPTIONAL_RUNS_STA = 0
+
+ ... GENERATE_IP_UPGRADE_LOG = 1
+
+ ... ID = 5e0e0a53ad4f40d28e726f685f50bff8
+
+ ... IP_CACHE_PERMISSIONS = read write
+
+ ... IP_INTERFACE_INFERENCE_PRIORITY = 
+
+ ... IP_OUTPUT_REPO = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0_ip.cache/ip
+
+ ... IP_REPO_PATHS = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova /home/andrea/devel/rfx/anacleto/fpga/ip_repo
+
+ ... IS_READONLY = 0
+
+ ... MANAGED_IP = 0
+
+ ... NAME = rfx_pwm_1.0_ip
+
+ ... PART = xc7z010clg400-1
+
+ ... PR_FLOW = 0
+
+ ... SIM.IP.AUTO_EXPORT_SCRIPTS = 1
+
+ ... SIM.USE_IP_COMPILED_LIBS = 1
+
+ ... SIMULATOR_LANGUAGE = Mixed
+
+ ... SOURCE_MGMT_MODE = All
+
+ ... TARGET_LANGUAGE = Verilog
+
+ ... TARGET_SIMULATOR = XSim
+
+ ... XPM_LIBRARIES = 
+
+ ... XSIM.ARRAY_DISPLAY_LIMIT = 1024
+
+ ... XSIM.RADIX = hex
+
+ ... XSIM.TIME_UNIT = ns
+
+ ... XSIM.TRACE_LIMIT = 65536
+
+ 
+
+ 
+
+**NORMAL PROJECT**
+
+* * *
+
+
+... BOARD_CONNECTIONS = 
+
+ ... BOARD_PART = 
+
+ ... CLASS = project
+
+ ... COMPXLIB.ACTIVEHDL_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0.cache/compile_simlib/activehdl
+
+ ... COMPXLIB.FUNCSIM = 1
+
+ ... COMPXLIB.IES_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0.cache/compile_simlib/ies
+
+ ... COMPXLIB.MODELSIM_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0.cache/compile_simlib/modelsim
+
+ ... COMPXLIB.OVERWRITE_LIBS = 0
+
+ ... COMPXLIB.QUESTA_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0.cache/compile_simlib/questa
+
+ ... COMPXLIB.RIVIERA_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0.cache/compile_simlib/riviera
+
+ ... COMPXLIB.TIMESIM = 1
+
+ ... COMPXLIB.VCS_COMPILED_LIBRARY_DIR = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0.cache/compile_simlib/vcs
+
+ ... COMPXLIB.XSIM_COMPILED_LIBRARY_DIR = 
+
+ ... CORECONTAINER.ENABLE = 0
+
+ ... DEFAULT_LIB = xil_defaultlib
+
+ ... DIRECTORY = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya
+
+ ... DSA.NUM_COMPUTE_UNITS = 16
+
+ ... ENABLE_OPTIONAL_RUNS_STA = 0
+
+ ... GENERATE_IP_UPGRADE_LOG = 1
+
+ ... ID = 06b13183744a4636a5d257a1cf7bff44
+
+ ... IP_CACHE_PERMISSIONS = read write
+
+ ... IP_INTERFACE_INFERENCE_PRIORITY = 
+
+ ... IP_OUTPUT_REPO = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova/edit/red_pitaya/rfx_pwm_1.0.cache/ip
+
+ ... IP_REPO_PATHS = /home/andrea/devel/rfx/anacleto/build/rel/projects/prova /home/andrea/devel/rfx/anacleto/fpga/ip_repo
+
+ ... IS_READONLY = 0
+
+ ... MANAGED_IP = 0
+
+ ... NAME = rfx_pwm_1.0
+
+ ... PART = xc7z010clg400-1
+
+ ... PR_FLOW = 0
+
+ ... SIM.IP.AUTO_EXPORT_SCRIPTS = 1
+
+ ... SIM.USE_IP_COMPILED_LIBS = 1
+
+ ... SIMULATOR_LANGUAGE = Mixed
+
+ ... SOURCE_MGMT_MODE = All
+
+ ... TARGET_LANGUAGE = Verilog
+
+ ... TARGET_SIMULATOR = XSim
+
+ ... XPM_LIBRARIES = 
+
+ ... XSIM.ARRAY_DISPLAY_LIMIT = 1024
+
+ ... XSIM.RADIX = hex
+
+ ... XSIM.TIME_UNIT = ns
+
+ ... XSIM.TRACE_LIMIT = 65536
+
+Indeed trying to open a project adding the component.xml file it actually appears the package ip option in the side flow panel. Turns out anyway that the component.xml file is very stitched to the ip directory with references to the local ip file sources and xgui. 
+
+SOL1) We need to use a uniform way to pass through a dummy in memory project to save the edit ip project .. but the write back to tcl must be modified to take into account that the ip sources are not actually remote files.
+
+SOL2) We could always treat the project like a simple RTL project without ip references.
+
+SOL3) Do NOT import files while making the new ip.. This ensures that the component.xml will not reference any different source. BUT we must use edit_ip also for opening project in case the project is listed in vivado_CORES because the component xml resided in the ip directory.
+
+SOL4) I forgot !! component.xml must NOT be saved in any case. (Version dependent) So that sol3 is good but we must prevent the component.xml to be saved by anacleto_write_project.tcl … than the makefile in edit mode (or open_project) will embed the newly created component.xml form the correct build IP directory.
+
+1. Prevent component.xml to be saved
+
+2. Add component.xml maually during package_ip and edit_ip
+
+3. Make open_project call edit_ip if the project is linted in cores
