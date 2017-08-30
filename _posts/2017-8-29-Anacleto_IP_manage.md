@@ -3,8 +3,6 @@ layout: post
 title: ANACLETO - VIVADO IP PROJECT
 ---
 
-# ANACLETO - VIVADO IP PROJECT
-
 In Vivado there are no apparent difference between a standard RTL project and an IP packaging software. 
 
 The former created using:
