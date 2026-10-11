@@ -1,0 +1,137 @@
+# Students supervised (theses, Ph.D. and internships).
+# area: ml | codas | mutom | other  — controls the group on the CV page.
+# Sources: "Registro Laureandi / Dottorandi / Tirocinanti" and the mentorship slide of the CV.
+
+- name: Lorenzo Saccaro
+  level: Ph.D.
+  program: Fusion Science and Engineering
+  year: "since 2024"
+  area: ml
+  title: Reconstruction of the reversed field pinch magnetic perturbations in toroidal geometry by means of Deep Learning for real-time plasma control
+  award: Best paper award, 25th IEEE Real Time Conference (2026)
+
+- name: Luca Orlandi
+  level: Ph.D.
+  program: Fusion Science and Engineering
+  year: "since 2023"
+  area: ml
+  title: Deep Learning models for real-time Soft X-Ray recovery
+
+- name: Thomas Boland
+  level: Ph.D.
+  program: Physics (Jülich)
+  year: "2025"
+  area: mutom
+  title: Muon tomography ML-aided reconstruction for spent nuclear fuel canister detection
+
+- name: Lorenzo Saccaro
+  level: M.Sc.
+  program: Physics of Data
+  year: "2023 / 2024"
+  area: ml
+  title: Reconstruction of the reversed field pinch magnetic perturbations in toroidal geometry by means of Deep Learning for real-time plasma control
+
+- name: Marija Mojsovska
+  level: M.Sc.
+  program: Physics of Data
+  year: "2023 / 2024"
+  area: ml
+  title: Deep Learning models for real-time fusion device data compression algorithms
+
+- name: Luca Orlandi
+  level: M.Sc.
+  program: Physics of Data
+  year: "2022 / 2023"
+  area: ml
+  title: Deep Learning models for real-time Soft X-Ray recovery
+
+- name: Nicola Gulmini
+  level: M.Sc.
+  program: Computer Engineering
+  year: "2020 / 2021"
+  area: ml
+  title: A deep learning approach for data recovery in the Soft X-Ray fusion plasma diagnostics
+
+- name: Gabriel Amorosetti
+  level: Internship
+  program: Physics (Toulouse)
+  year: "2021 / 2022"
+  area: ml
+  title: Characterization of a new deep learning approach for data recovery in the Soft X-Ray fusion plasma diagnostics in the RFX-mod experiment
+
+- name: Nicola Lonigro
+  level: M.Sc.
+  program: Physics
+  year: "2018 / 2019"
+  area: ml
+  title: STRIKE beamlet parameters retrieval via Convolutional Neural Networks
+
+- name: Ivan Brillo
+  level: B.Sc.
+  program: Computer Engineering
+  year: "2023 / 2024"
+  area: ml
+  title: Analysis of the "calcium signal" in biological systems through deep learning methods
+
+- name: Nader Farhat
+  level: M.Sc.
+  program: Physics
+  year: "2026"
+  area: mutom
+  title: Predis reconstruction with semi-supervised ML classification
+
+- name: Manuel Rigobello
+  level: M.Sc.
+  program: Computer Engineering
+  year: "2025 / 2026"
+  area: codas
+  title: Content-addressed FlatBuffers serialization for distributed data access in the SPIDER experiment
+
+- name: Fabio Ceretti
+  level: B.Sc.
+  program: Computer Engineering
+  year: "2025 / 2026"
+  area: codas
+  title: A novel stateful C++ embedded control for vacuum turbomolecular systems in RFX
+
+- name: Maria Ruxandra Radulescu
+  level: B.Sc.
+  program: Computer Engineering
+  year: "2024 / 2025"
+  area: codas
+  title: IPFS / IPLD data distribution algorithms
+
+- name: Marco Martini
+  level: M.Sc.
+  program: Computer Engineering
+  year: "2023 / 2024"
+  area: codas
+  title: Comparison of virtual desktop transmission protocols and development of an infrastructure for remote access to containerized environments
+
+- name: Matteo Lando
+  level: M.Sc.
+  program: Computer Engineering
+  year: "2022 / 2023"
+  area: codas
+  title: "Optimization and evolution of a Netflow collector: deploying microservices and analysis of emerging technologies for network traffic collection"
+
+- name: Alberto Bottari
+  level: M.Sc.
+  program: Computer Engineering
+  year: "2025 / 2026"
+  area: other
+  title: Modular compiler design for emerging compute-near-HBM architectures
+
+- name: Hamideh Haeri
+  level: B.Sc.
+  program: Computer Engineering
+  year: "2023 / 2024"
+  area: other
+  title: Optimizing toolpath length in CAM technology for CNC machines
+
+- name: Enrico Dalberton
+  level: Internship
+  program: Computer Engineering
+  year: "2023 / 2024"
+  area: other
+  title: Industrial internship at Amazon Spain Services

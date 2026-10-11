@@ -1,0 +1,118 @@
+# Selected publications shown on the CV page.
+# topic: ml | mdsplus | other   — controls the group.
+# url is optional; leave it out when no stable link is known.
+
+- topic: ml
+  year: 2026
+  title: Real-Time Toroidal Equilibrium Reconstruction for RFX-mod2 via Quantized Neural Network in FPGA
+  authors: L. Saccaro, A. Rigoni Garola, P. Zanca, D. Terranova, R. Cavazzana
+  venue: IEEE Transactions on Nuclear Science (submitted)
+  note: Presented at the 25th IEEE Real Time Conference, 2026
+
+- topic: ml
+  year: 2026
+  title: FPGA-Deployed Variational Autoencoder for Real-Time Soft X-Ray Electron Temperature Reconstruction in RFX-mod2
+  authors: L. Orlandi, A. Rigoni Garola, L. Saccaro, P. Franz, M. Gobbin, L. Piron, R. Cavazzana
+  venue: IEEE Transactions on Nuclear Science (submitted)
+
+- topic: ml
+  year: 2026
+  title: Data reconstruction using variational autoencoders and error analysis compared to B-spline interpolation
+  authors: L. Orlandi, A. Rigoni Garola, M. Gobbin, P. Franz, L. Piron
+  venue: Plasma Physics and Controlled Fusion 68 (2), 025028
+
+- topic: ml
+  year: 2025
+  title: Thermal structures and their relation to magnetic topology in RFX-mod
+  authors: L. Orlandi, L. Piron, M. Gobbin, P. Franz, A. Rigoni Garola
+  venue: Plasma Physics and Controlled Fusion 67 (4), 045006
+
+- topic: ml
+  year: 2021
+  title: Diagnostic data integration using deep neural networks for real-time plasma analysis
+  authors: A. Rigoni Garola, R. Cavazzana, M. Gobbin, R. S. Delogu, G. Manduchi, C. Taliercio, A. Luchetta
+  venue: IEEE Transactions on Nuclear Science 68 (8), 2165–2172
+  url: https://doi.org/10.1109/TNS.2021.3096837
+  preprint: https://arxiv.org/abs/2010.15156
+
+- topic: mdsplus
+  year: 2018
+  title: MDSplus remote data access over high latency connections
+  authors: G. Manduchi, A. Rigoni, G. De Tommasi, F. Sartori, T. W. Fredian, J. A. Stillerman, et al.
+  venue: Fusion Engineering and Design 128, 68–74
+
+- topic: mdsplus
+  year: 2018
+  title: MDSplus yesterday, today and tomorrow
+  authors: T. Fredian, J. Stillerman, G. Manduchi, A. Rigoni, K. Erickson, T. Schröder
+  venue: Fusion Engineering and Design 127, 106–110
+
+- topic: mdsplus
+  year: 2016
+  title: MDSplus quality improvement project
+  authors: T. W. Fredian, J. Stillerman, G. Manduchi, A. Rigoni, K. Erickson
+  venue: Fusion Engineering and Design
+  url: https://doi.org/10.1016/j.fusengdes.2016.05.034
+
+- topic: mdsplus
+  year: 2018
+  title: A portable control and data acquisition solution using EPICS, MARTe and MDSplus
+  authors: G. Manduchi, A. Luchetta, C. Taliercio, A. Rigoni, F. Sartori, A. Neto, G. Carannante
+  venue: Fusion Engineering and Design 127, 50–53
+
+- topic: mdsplus
+  year: 2020
+  title: Web-based streamed waveform display using MDSplus events and Node.js
+  authors: G. Manduchi, A. Luchetta, G. Moro, A. Rigoni, C. Taliercio
+  venue: Fusion Engineering and Design 157, 111625
+
+- topic: mdsplus
+  year: 2024
+  title: A versatile board for event-driven data acquisition
+  authors: G. Manduchi, A. Rigoni, L. Trevisan, T. Patton
+  venue: Sensors 24 (5), 1631
+  url: https://doi.org/10.3390/s24051631
+
+- topic: mdsplus
+  year: 2024
+  title: A mixed approach for clock synchronization in distributed data acquisition systems
+  authors: G. Manduchi, A. Rigoni, L. Trevisan, T. Patton
+  venue: Sensors 24 (18), 6155
+  url: https://doi.org/10.3390/s24186155
+
+- topic: mdsplus
+  year: 2021
+  title: A Zynq-based flexible ADC architecture combining real-time data streaming and transient recording
+  authors: A. Rigoni Garola, G. Manduchi, M. Gottardo, R. Cavazzana, M. Recchia, C. Taliercio, A. Luchetta
+  venue: IEEE Transactions on Nuclear Science 68 (2), 245–249
+
+- topic: mdsplus
+  year: 2018
+  title: A framework for the integration of the development process of Linux FPGA System on Chip devices
+  authors: A. Rigoni, G. Manduchi, A. Luchetta, C. Taliercio, T. Schröder
+  venue: Fusion Engineering and Design 128, 122–125
+
+- topic: mdsplus
+  year: 2021
+  title: The upgrade of the control and data acquisition system of RFX-mod2
+  authors: G. Manduchi, A. Luchetta, C. Taliercio, A. Rigoni, G. Martini, R. Cavazzana, et al.
+  venue: Fusion Engineering and Design 167, 112329
+
+- topic: other
+  year: 2025
+  title: Results on re-verification tests of spent fuel casks with muon tomography — MUTOMCA project
+  authors: P. Andreetto, et al. (incl. A. Rigoni Garola)
+  venue: Journal of Applied Physics 138 (12)
+
+- topic: other
+  year: 2014
+  title: Muon tomography effectiveness in detecting orphan sources in scrap metal
+  authors: A. Rigoni Garola
+  venue: Il Nuovo Cimento C 37 (4)
+
+- topic: other
+  year: 2013
+  title: Noise reduction in muon tomography for detecting high density objects
+  authors: M. Benettoni, et al. (incl. A. Rigoni)
+  venue: Journal of Instrumentation 8, P12007
+  url: https://doi.org/10.1088/1748-0221/8/12/P12007

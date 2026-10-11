@@ -1,3 +1,16 @@
+# Andrea Rigoni Garola — CV site
+
+The home page (`index.html`, layout `_layouts/cv.html`, styles `css/cv.css`) is the academic CV.
+Most content that changes over time lives in data files, so it can be edited without touching the page:
+
+- `_data/students.yml` — supervised students; `area` picks the group (`ml`, `codas`, `mutom`, `other`)
+- `_data/publications.yml` — selected publications; `topic` picks the group (`ml`, `mdsplus`, `other`)
+- `_data/talks.yml` — talks, newest first
+
+Figures are in `images/cv/`. The old blog listing now lives at `/blog/`; posts keep their URLs.
+
+---
+
 > March, 2016: If you're on an old version of Jekyll Now and run into a) build warnings or b) syntax highlighting issues caused by [Jekyll 3 and GitHub Pages updates](https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0), just :sparkles:[update your _config.yml](https://github.com/barryclark/jekyll-now/pull/445/files):sparkles: and you'll be set!
 
 # Jekyll Now
