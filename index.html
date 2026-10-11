@@ -137,76 +137,38 @@ summary: >-
   </div>
 </section>
 
-<!-- ============================== MDSPLUS + TEACHING ============================== -->
+<!-- ============================== MDSPLUS ============================== -->
 <section id="mdsplus" class="mds-band">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">Data acquisition &amp; analysis · Teaching</div>
-      <h2>MDSplus and the Concurrent and Real-Time Programming course at UniPD</h2>
+      <div class="eyebrow">Data acquisition &amp; analysis · since 2015</div>
+      <h2>MDSplus, with MIT and the fusion community</h2>
       <p>
-        My work on MDSplus and my course at the University of Padova are two sides of the same subject. MDSplus is where
-        concurrency, real-time constraints and distributed data access meet a real experiment; the course is where I teach
-        those same techniques to the next generation of engineers, many of whom then join acquisition and data projects at Consorzio RFX.
+        Since 2015 I have been a core developer of <a href="https://www.mdsplus.org">MDSplus</a>, the framework for the
+        acquisition, storage and access of complex scientific data developed jointly by MIT and the fusion research group in Padova.
+        It is the most widely used data management system in the magnetic fusion energy programme, installed at over 30 sites on 4 continents.
       </p>
     </div>
 
-    <div class="bridge">
+    <div class="grid-2">
       <div class="card">
-        <div class="eyebrow">Since 2015 · Consorzio RFX · with MIT PSFC</div>
-        <h3>MDSplus core developer</h3>
-        <p>
-          <a href="https://www.mdsplus.org">MDSplus</a> is a framework for the acquisition, storage and access of complex
-          scientific data, developed jointly by MIT and the fusion research group in Padova. It is the most widely used data
-          management system in the magnetic fusion energy programme, installed at over 30 sites on 4 continents.
-        </p>
+        <h3>My contributions</h3>
         <ul>
           <li>Data throughput over high-latency links (Padova ↔ ITER Remote Experimentation Centre, Rokkasho, JP)</li>
           <li>Code quality, test-driven development and contribution workflow</li>
           <li>Portable build system (Autoconf/Automake) and containerisation</li>
-          <li>Custom FPGA acquisition devices (Zynq, RedPitaya) streaming into MDSplus for RFX-mod2, SPIDER and MITICA</li>
+          <li>Custom FPGA acquisition devices (Zynq, RedPitaya) connected to MDSplus for RFX-mod2, SPIDER and MITICA</li>
         </ul>
-        <p class="muted" style="margin-top:.8em">Worked closely with Tom Fredian and Josh Stillerman (MIT PSFC), Keith Erickson (PPPL) and Gabriele Manduchi (RFX).</p>
       </div>
-
-      <div class="bridge-link" aria-hidden="true">
-        <span class="arrow">⇄</span>
-        <span>same problems,<br>lab and classroom</span>
-      </div>
-
       <div class="card">
-        <div class="eyebrow">Since 2021 · Dept. of Information Engineering</div>
-        <h3>Concurrent and Real-Time Programming</h3>
-        <p>
-          Master’s course (INQ0091623) at the Università degli Studi di Padova. Techniques for designing and implementing
-          distributed systems, scheduling for real-time systems, and ensuring correctness in concurrent programs by avoiding
-          deadlocks and race conditions, with efficient and secure memory management in C, C++, Java and Python.
-        </p>
-        <p class="muted">Student evaluation, last academic year (UniPD statistics):</p>
-        <div class="rating">
-          <div><b>9.2</b><span>teaching</span></div>
-          <div><b>9.05</b><span>organisation</span></div>
-          <div><b>8.8</b><span>satisfaction</span></div>
+        <h3>Collaboration</h3>
+        <p>Developed with Tom Fredian and Josh Stillerman (MIT Plasma Science and Fusion Center), Keith Erickson (PPPL)
+          and Gabriele Manduchi (Consorzio RFX). Joint work with MIT includes FPGA solutions for smart acquisition devices
+          for RFX-mod2 and SPARC (MIT, 2018).</p>
+        <p class="muted">Computer-engineering theses I supervise on acquisition and data systems at Consorzio RFX:</p>
+        <div class="chips">
+          {% for s in codas_students %}<span class="chip">{{ s.name }} — {{ s.title | truncatewords: 7 }}</span>{% endfor %}
         </div>
-        <p class="muted" style="margin-top:1em">Previously: Data Structures and Programming in C and Python, Dept. of Statistical Sciences (2019–2021).</p>
-      </div>
-    </div>
-
-    <div class="shared card">
-      <h3 style="margin-bottom:.6rem">Where the course meets the experiment</h3>
-      <div class="table-scroll">
-        <table>
-          <thead><tr><th>Taught in the course</th><th>Applied in MDSplus and RFX data acquisition</th></tr></thead>
-          <tbody>
-            <tr><td>Concurrency, synchronisation, deadlock and race-free design</td><td>Concurrent acquisition and storage of thousands of signals from many devices into one data system</td></tr>
-            <tr><td>Real-time scheduling</td><td>Feedback control cycles of 100&nbsp;µs on RFX-mod2, sub-microsecond distributed timing for MITICA, ML inference inside the control loop</td></tr>
-            <tr><td>Distributed systems</td><td>Remote data access over high-latency connections, clock synchronisation for distributed acquisition, content-addressed data distribution</td></tr>
-            <tr><td>Systems programming in C/C++</td><td>MDSplus core libraries, Linux kernel drivers with FIFO and DMA for FPGA acquisition boards</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="muted" style="margin-top:1em">Computer-engineering theses I supervise on acquisition and data systems at Consorzio RFX:</p>
-      <div class="chips">
-        {% for s in codas_students %}<span class="chip">{{ s.name }} — {{ s.title | truncatewords: 7 }}</span>{% endfor %}
       </div>
     </div>
 
@@ -219,6 +181,38 @@ summary: >-
         <img src="{{ site.baseurl }}/images/cv/mdsplus-jp-throughput.jpg" alt="MDSplus throughput versus segment size, default versus tuned" loading="lazy">
         <figcaption>mdsip throughput over the high-latency connection to Japan, default versus tuned.</figcaption>
       </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TEACHING ============================== -->
+<section id="teaching">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Teaching · Università degli Studi di Padova</div>
+      <h2>Concurrent and Real-Time Programming</h2>
+      <p>
+        Since 2021 I teach the master’s course Concurrent and Real-Time Programming (INQ0091623) at the Department of
+        Information Engineering: techniques for designing and implementing distributed systems, scheduling for real-time
+        systems, and ensuring correctness in concurrent programs by avoiding deadlocks and race conditions, with efficient
+        and secure memory management in C, C++, Java and Python.
+      </p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Student evaluation</h3>
+        <p class="muted">Last academic year, UniPD statistics</p>
+        <div class="rating light">
+          <div><b>9.2</b><span>teaching</span></div>
+          <div><b>9.05</b><span>organisation</span></div>
+          <div><b>8.8</b><span>satisfaction</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Previously</h3>
+        <p>Data Structures and Programming in C and Python, 2nd-year bachelor course (SCP7081518),
+          Department of Statistical Sciences, 2019–2021.</p>
+      </div>
     </div>
   </div>
 </section>
