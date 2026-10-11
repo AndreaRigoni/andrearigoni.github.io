@@ -1,18 +1,446 @@
 ---
-layout: default
+layout: cv
+headline: Machine learning for fusion diagnostics · Data acquisition · Teaching
+summary: >-
+  Andrea Rigoni Garola, Ph.D. — researcher at Consorzio RFX and adjunct professor at the University of Padova.
+  Machine learning for heterogeneous diagnostic data integration, real-time AI on FPGA, MDSplus data acquisition,
+  and mentorship of students in physics and computer engineering.
 ---
+{% assign students = site.data.students %}
+{% assign student_names = students | map: "name" | uniq %}
+{% assign ml_students = students | where: "area", "ml" %}
+{% assign codas_students = students | where: "area", "codas" %}
+{% assign mutom_students = students | where: "area", "mutom" %}
+{% assign other_students = students | where: "area", "other" %}
 
-<div class="posts">
-  {% for post in site.posts %}
-    <article class="post">
-
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.excerpt }}
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <img class="portrait" src="{{ site.baseurl }}/images/cv/portrait.jpg" alt="Portrait of Andrea Rigoni Garola" width="180" height="180">
+      <div>
+        <div class="eyebrow">Consorzio RFX · Università degli Studi di Padova</div>
+        <h1>Andrea Rigoni Garola, Ph.D.</h1>
+        <p class="role">Researcher in machine learning for fusion diagnostics · MDSplus core developer · Adjunct Professor of Concurrent and Real-Time Programming</p>
+        <p class="lede">
+          I work where fusion experiments produce their data: acquiring it, moving it and making sense of it in real time.
+          My research uses deep generative models to integrate heterogeneous plasma diagnostics into a single picture of the
+          machine state, and deploys those models on FPGAs so they can run inside the control loop. Alongside it I develop
+          <a href="https://www.mdsplus.org">MDSplus</a>, the data system used across the fusion programme, and I teach and
+          mentor the students who carry this work forward.
+        </p>
+        <div class="pills">
+          <span class="pill ml">Machine learning</span>
+          <span class="pill ml">Diagnostic data integration</span>
+          <span class="pill ml">Variational autoencoders</span>
+          <span class="pill ml">Quantized NNs on FPGA</span>
+          <span class="pill mds">MDSplus</span>
+          <span class="pill mds">Data acquisition &amp; control</span>
+          <span class="pill">Real-time systems</span>
+        </div>
+        <div class="links">
+          <a class="btn primary" href="mailto:andrea.rigoni@igi.cnr.it">Email</a>
+          <a class="btn" href="https://github.com/{{ site.footer-links.github }}">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/{{ site.footer-links.linkedin }}">LinkedIn</a>
+          <a class="btn" href="https://github.com/MDSplus/mdsplus">MDSplus on GitHub</a>
+        </div>
       </div>
+    </div>
 
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
-</div>
+    <div class="stats">
+      <div class="stat"><b>69</b><span>publications (Google Scholar)</span></div>
+      <div class="stat"><b>{{ student_names.size }}</b><span>students supervised: B.Sc., M.Sc., Ph.D. and interns</span></div>
+      <div class="stat"><b>30+</b><span>sites on 4 continents run MDSplus</span></div>
+      <div class="stat"><b>9.2<small style="font-size:.5em">/10</small></b><span>teaching score from students (UniPD)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== RESEARCH ============================== -->
+<section id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Research</div>
+      <h2>Machine learning for diagnostic data integration</h2>
+      <p>
+        A fusion experiment is observed by thousands of heterogeneous sensors: RFX-mod alone had 8,336 signal nodes
+        (magnetics, temperature, density, wall interaction) and acquired about 10&nbsp;GB in a 250&nbsp;ms discharge.
+        The physics linking those signals is non-linear and largely hidden. My Ph.D. thesis,
+        <em>“Tools for heterogeneous diagnostic data integration: application to real-time control of fusion relevant plasmas”</em>
+        (University of Padova, 2021), proposed learning that link directly from data with deep generative models, and
+        running the result fast enough to be used for control.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="card ml">
+        <div class="kicker">Integrate</div>
+        <h3>A shared latent state from many diagnostics</h3>
+        <p>
+          Variational autoencoders trained on each diagnostic are composed into one model whose latent space describes
+          the plasma state as seen by all of them. The composition acts as a structural sparse regulariser and makes
+          diagnostic-to-diagnostic mapping possible, for example inferring Soft X-ray temperature profiles from the magnetic configuration.
+        </p>
+      </div>
+      <div class="card ml">
+        <div class="kicker">Recover</div>
+        <h3>Reconstruction, denoising, compression</h3>
+        <p>
+          The same latent representation recovers missing or faulty channels, reduces noise, flags anomalies and compresses
+          high-rate data. On RFX-mod Soft X-ray data, VAE reconstruction of missing points beats B-spline interpolation,
+          and learned codecs are being studied for real-time data compression.
+        </p>
+      </div>
+      <div class="card ml">
+        <div class="kicker">Deploy</div>
+        <h3>Real-time inference on FPGA</h3>
+        <p>
+          Models are quantized (quantization-aware training, Brevitas, FINN, hls4ml, HGQ) and synthesised into FPGA firmware
+          so they run inside the acquisition chain. A neural surrogate of the RFX-mod2 toroidal equilibrium runs a full radial
+          scan in about 300&nbsp;ns, far inside the 100&nbsp;µs control cycle.
+        </p>
+      </div>
+    </div>
+
+    <div class="figures">
+      <figure class="figure">
+        <img src="{{ site.baseurl }}/images/cv/vae-reconstruction.jpg" alt="Variational autoencoder architecture for diagnostic data reconstruction" loading="lazy">
+        <figcaption>VAE for data reconstruction and diagnostic-to-diagnostic mapping, from the Ph.D. work
+          (<a href="https://doi.org/10.1109/TNS.2021.3096837">IEEE TNS 68(8), 2021</a>).</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="{{ site.baseurl }}/images/cv/vae-vs-spline.jpg" alt="Mean absolute error versus number of missing points, VAE compared with spline" loading="lazy">
+        <figcaption>Soft X-ray temperature reconstruction error as channels go missing: VAE versus B-spline (with L. Orlandi).</figcaption>
+      </figure>
+    </div>
+
+    <div class="callout">
+      <p>
+        <strong>RFX-hunch — a distributed, unsupervised plasma-state control.</strong>
+        The Ph.D. idea became a research line at Consorzio RFX that I lead: sensor data are aggregated into a learned state,
+        physics models are probed against it, and ML controllers act on it alongside the legacy RFX control system.
+        Each block is now a student thesis, from data compression to VAE reconstruction to toroidal magnetic reconstruction
+        (see <a href="#mentorship">Mentorship</a>).
+      </p>
+    </div>
+
+    <div class="figures even">
+      <figure class="figure">
+        <img src="{{ site.baseurl }}/images/cv/rfx-hunch-architecture.jpg" alt="RFX-hunch architecture: sensors, state aggregation, physics probes and ML control" loading="lazy">
+        <figcaption>RFX-hunch: sensor acquisition, state aggregation, physics probes and ML control around the RFX legacy control.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="{{ site.baseurl }}/images/cv/compression-vae.jpg" alt="Learned compression pipeline with encoder, binarization, decoder and entropy coder" loading="lazy">
+        <figcaption>Learned real-time compression of fusion device data (M.Sc. thesis, M. Mojsovska).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MDSPLUS ============================== -->
+<section id="mdsplus" class="mds-band">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Data acquisition &amp; analysis · since 2015</div>
+      <h2>MDSplus, with MIT and the fusion community</h2>
+      <p>
+        Since 2015 I have been a core developer of <a href="https://www.mdsplus.org">MDSplus</a>, the framework for the
+        acquisition, storage and access of complex scientific data developed jointly by MIT and the fusion research group in Padova.
+        It is the most widely used data management system in the magnetic fusion energy programme, installed at over 30 sites on 4 continents.
+      </p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>My contributions</h3>
+        <ul>
+          <li>Data throughput over high-latency links (Padova ↔ ITER Remote Experimentation Centre, Rokkasho, JP)</li>
+          <li>Code quality, test-driven development and contribution workflow</li>
+          <li>Portable build system (Autoconf/Automake) and containerisation</li>
+          <li>Custom FPGA acquisition devices (Zynq, RedPitaya) connected to MDSplus for RFX-mod2, SPIDER and MITICA</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Collaboration</h3>
+        <p>Developed with Tom Fredian and Josh Stillerman (MIT Plasma Science and Fusion Center), Keith Erickson (PPPL)
+          and Gabriele Manduchi (Consorzio RFX). Joint work with MIT includes FPGA solutions for smart acquisition devices
+          for RFX-mod2 and SPARC (MIT, 2018).</p>
+        <p class="muted">Computer-engineering theses I supervise on acquisition and data systems at Consorzio RFX:</p>
+        <div class="chips">
+          {% for s in codas_students %}<span class="chip">{{ s.name }} — {{ s.title | truncatewords: 7 }}</span>{% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="figures even">
+      <figure class="figure">
+        <img src="{{ site.baseurl }}/images/cv/mdsplus-sites.jpg" alt="World map of MDSplus installations and the Padova–Rokkasho link" loading="lazy">
+        <figcaption>MDSplus installations worldwide and the long-distance link tested for the ITER Remote Experimentation Centre.</figcaption>
+      </figure>
+      <figure class="figure">
+        <img src="{{ site.baseurl }}/images/cv/mdsplus-jp-throughput.jpg" alt="MDSplus throughput versus segment size, default versus tuned" loading="lazy">
+        <figcaption>mdsip throughput over the high-latency connection to Japan, default versus tuned.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TEACHING ============================== -->
+<section id="teaching">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Teaching · Università degli Studi di Padova</div>
+      <h2>Concurrent and Real-Time Programming</h2>
+      <p>
+        Since 2021 I teach the master’s course Concurrent and Real-Time Programming (INQ0091623) at the Department of
+        Information Engineering: techniques for designing and implementing distributed systems, scheduling for real-time
+        systems, and ensuring correctness in concurrent programs by avoiding deadlocks and race conditions, with efficient
+        and secure memory management in C, C++, Java and Python.
+      </p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Student evaluation</h3>
+        <p class="muted">Last academic year, UniPD statistics</p>
+        <div class="rating light">
+          <div><b>9.2</b><span>teaching</span></div>
+          <div><b>9.05</b><span>organisation</span></div>
+          <div><b>8.8</b><span>satisfaction</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Previously</h3>
+        <p>Data Structures and Programming in C and Python, 2nd-year bachelor course (SCP7081518),
+          Department of Statistical Sciences, 2019–2021.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MENTORSHIP ============================== -->
+<section id="mentorship">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Mentorship</div>
+      <h2>Students I have supervised</h2>
+      <p>
+        As adjunct professor at the University of Padova I have supervised {{ student_names.size }} bachelor, master and
+        Ph.D. students and interns, bringing young physicists and engineers into INFN and Consorzio RFX research.
+        Most of the machine-learning theses feed directly into the RFX-hunch research line.
+      </p>
+    </div>
+
+    <div class="mentor-groups">
+      {% assign groups = "ml|Machine learning for fusion data,codas|Data acquisition and data systems (CODAS),mutom|Muon tomography,other|Other computer engineering" | split: "," %}
+      {% for g in groups %}
+        {% assign parts = g | split: "|" %}
+        {% assign list = students | where: "area", parts[0] %}
+        {% if list.size > 0 %}
+        <div class="mentor-group {{ parts[0] }}">
+          <h3>{{ parts[1] }} <span class="count">{{ list.size }}</span></h3>
+          <div class="students">
+            {% for s in list %}
+            <div class="student">
+              <div class="who"><b>{{ s.name }}</b><span class="level{% if s.level == 'Ph.D.' %} phd{% endif %}">{{ s.level }}</span></div>
+              <div class="meta">{{ s.program }} · {{ s.year }}</div>
+              <p class="title">{{ s.title }}</p>
+              {% if s.award %}<div class="award">★ {{ s.award }}</div>{% endif %}
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- ============================== EXPERIENCE ============================== -->
+<section id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Experience</div>
+      <h2>Career</h2>
+    </div>
+    <ul class="timeline">
+      <li>
+        <div class="when">2015 – present</div>
+        <div>
+          <h3>Researcher, Control and Data Acquisition Systems (CODAS) and AI embedded systems</h3>
+          <div class="where">Consorzio RFX, Padova</div>
+          <p>Diagnostics data acquisition, feedback control, timing and monitoring for three experiments: RFX-mod2, and SPIDER
+            and MITICA within the ITER neutral beam programme. Design of custom FPGA acquisition devices connected to MDSplus.
+            Leading the project for real-time AI control of fusion experiments based on aggregated diagnostic data and
+            online surrogate models in FPGA.</p>
+          <figure class="figure" style="margin-top:12px">
+            <img src="{{ site.baseurl }}/images/cv/fpga-acquisition.jpg" alt="Custom FPGA acquisition hardware: Rogowski coil DAQ, fast current probes, timing hub" loading="lazy">
+            <figcaption>Custom FPGA-based acquisition and timing devices built for the Neutral Beam Test Facility.</figcaption>
+          </figure>
+        </div>
+      </li>
+      <li>
+        <div class="when">2022 – 2024</div>
+        <div>
+          <h3>CODAS responsible, MITICA High Voltage Holding campaign</h3>
+          <div class="where">Consorzio RFX · ITER Neutral Beam Test Facility</div>
+          <p>Scientific consultant for the campaign on MITICA, the full-scale prototype of the ITER heating neutral beam injector,
+            which must hold 1&nbsp;MV across its vacuum gaps.</p>
+          <ul>
+            <li>Integrated control of the high-vacuum and gas-injection systems</li>
+            <li>Insulated fast-transient acquisition devices on custom FPGA hardware</li>
+            <li>A custom distributed sub-microsecond timing system</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when">2021 – 2025</div>
+        <div>
+          <h3>Head of the IT group</h3>
+          <div class="where">Consorzio RFX</div>
+          <p>Led a team of 7 with a budget of about €800k per year, serving 250 users, 2 data centres and 4 experiments.
+            Moved the virtual infrastructure from VMware to Proxmox, containerised experiment applications for scalable
+            deployment and service continuity, and split work into ticketed service levels and OpenProject planning.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2019 – present</div>
+        <div>
+          <h3>Adjunct Professor</h3>
+          <div class="where">Università degli Studi di Padova</div>
+          <p>Concurrent and Real-Time Programming, Dept. of Information Engineering (since 2021). Data Structures and
+            Programming in C and Python, Dept. of Statistical Sciences (2019–2021).</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2011 – 2015</div>
+        <div>
+          <h3>Research grant, muon tomography</h3>
+          <div class="where">University of Padova, Dept. of Physics and Astronomy, and INFN</div>
+          <p>Large-scale tomography of cargo containers with cosmic-ray muons (EU Mu-Steel project), with INFN Padova and Legnaro
+            and the universities of Genova and Brescia. Designed the reconstruction code and new inversion approaches, including
+            radiation-length tomography with Maximum Likelihood Expectation Maximization (C++11, CUDA, ROOT/Geant4, VTK).</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2012 – 2013</div>
+        <div>
+          <h3>Graphics pipelines developer</h3>
+          <div class="where">GSquared, Padova</div>
+          <p>VTK pipelines for real-time visualisation of multi-modal biomedical tomographic images in a European project.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2001 – 2021</div>
+        <div>
+          <h3>Owner, technical services for entertainment</h3>
+          <div class="where">Blue Steam, Limena (PD)</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="section-head" style="margin-top:56px">
+      <div class="eyebrow">Education</div>
+      <h2>Degrees</h2>
+    </div>
+    <ul class="timeline">
+      <li>
+        <div class="when">2018 – 2021</div>
+        <div>
+          <h3>Ph.D. in Fusion Science and Engineering</h3>
+          <div class="where">Università degli Studi di Padova · advisors F. Gnesotto, P. Bettini, G. Manduchi</div>
+          <p>“Tools for heterogeneous diagnostic data integration: application to real-time control of fusion relevant plasmas.”
+            Unsupervised generative models (variational autoencoders) for integrating high-rate diagnostics, targeted at
+            RFX-mod2 where FPGA devices join the acquisition chain.</p>
+        </div>
+      </li>
+      <li>
+        <div class="when">2011</div>
+        <div>
+          <h3>Master’s degree in Electronic Engineering</h3>
+          <div class="where">Università degli Studi di Padova · advisors A. Buffa, R. Paccagnella</div>
+          <p>“Study of magnetohydrodynamic control in RFX-mod through object oriented frameworks.”</p>
+        </div>
+      </li>
+    </ul>
+
+    <div class="section-head" style="margin-top:56px">
+      <div class="eyebrow">Skills</div>
+      <h2>Tools and methods</h2>
+    </div>
+    <div class="skills">
+      <div class="card ml"><h3>Machine learning</h3><p>Deep generative models (VAEs), transformers, statistical analysis; TensorFlow, PyTorch, JAX</p></div>
+      <div class="card ml"><h3>Edge AI</h3><p>Quantization-aware training, Brevitas, Xilinx FINN, CERN hls4ml, HGQ, Xilinx HLS</p></div>
+      <div class="card mds"><h3>Data acquisition &amp; control</h3><p>MDSplus, MARTe, EPICS, distributed timing, PLC (Siemens S7) and ESP-IDF control</p></div>
+      <div class="card mds"><h3>Embedded &amp; FPGA</h3><p>Zynq SoC, RedPitaya, VHDL, Verilog, HLS, Linux kernel drivers (FIFO, DMA)</p></div>
+      <div class="card"><h3>Languages</h3><p>C, C++, Python, Java, JS/TS, Go, Rust, VHDL, Verilog</p></div>
+      <div class="card"><h3>Infrastructure</h3><p>Docker, Podman, LXC/LXD, Apptainer, Kubernetes, Proxmox VE, Ansible, Jenkins, CI/CD</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== PUBLICATIONS ============================== -->
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Publications &amp; talks</div>
+      <h2>Selected work</h2>
+      <p>A selection from 69 publications indexed on Google Scholar.</p>
+    </div>
+
+    {% assign pub_groups = "ml|Machine learning and diagnostic data integration,mdsplus|MDSplus, data acquisition and real-time systems,other|Muon tomography" | split: "," %}
+    {% for g in pub_groups %}
+      {% assign parts = g | split: "|" %}
+      {% assign list = site.data.publications | where: "topic", parts[0] | sort: "year" | reverse %}
+      <div class="pub-group">
+        <h3>{{ parts[1] }}</h3>
+        <ul class="pubs">
+          {% for p in list %}
+          <li>
+            <span class="yr">{{ p.year }}</span>
+            <div>
+              <div class="t">{{ p.title }}</div>
+              <div class="a">{{ p.authors }}</div>
+              <div class="v">{{ p.venue }}{% if p.url %}<a href="{{ p.url }}">DOI</a>{% endif %}{% if p.preprint %}<a href="{{ p.preprint }}">arXiv</a>{% endif %}</div>
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endfor %}
+
+    <div class="pub-group">
+      <h3>Talks</h3>
+      <ul class="pubs">
+        {% for t in site.data.talks %}
+        <li>
+          <span class="yr">{{ t.date | split: " " | last }}</span>
+          <div>
+            <div class="t">{{ t.title }}</div>
+            <div class="a">{{ t.event }}</div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="grid-2" style="margin-top:24px">
+      <div class="card">
+        <h3>Awards</h3>
+        <ul>
+          <li>Best communication, XCIV National Congress of the Italian Physical Society, Section IV, Trieste 2013, for muon tomography of shielded radioactive sources in scrap metal transport</li>
+          <li>Best paper, 25th IEEE Real Time Conference 2026, awarded to the work of my Ph.D. student Lorenzo Saccaro</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Service and memberships</h3>
+        <ul>
+          <li>Reviewer for Fusion Engineering and Design (Elsevier), since 2016</li>
+          <li>IEEE member, since 2019</li>
+          <li>Italian Physical Society (SIF), since 2013</li>
+          <li>INFN associate, 2013–2024</li>
+        </ul>
+        <p class="muted" style="margin-top:.8em">Languages: Italian (native), English (C1), German (A1)</p>
+      </div>
+    </div>
+  </div>
+</section>
